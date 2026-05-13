@@ -1,0 +1,1055 @@
+/* ========================================= */
+/* RESET */
+/* ========================================= */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  font-family: 'Inter', sans-serif;
+  background: #050505;
+  color: #ffffff;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ========================================= */
+/* VARIABLES */
+/* ========================================= */
+
+:root{
+
+  --primary: #F26B63;
+  --primary-light: #ff8f88;
+
+  --background: #050505;
+  --background-2: #0c0c0c;
+
+  --card: rgba(255,255,255,0.06);
+
+  --border: rgba(255,255,255,0.08);
+
+  --text-gray: rgba(255,255,255,0.7);
+
+  --shadow:
+    0px 20px 60px rgba(0,0,0,0.45);
+
+  --glass:
+    blur(18px);
+
+}
+
+/* ========================================= */
+/* BACKGROUND EFFECTS */
+/* ========================================= */
+
+.bg-gradient{
+  position: fixed;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(242,107,99,0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(242,107,99,0.12),
+      transparent 25%
+    );
+
+  z-index: -2;
+}
+
+.bg-noise{
+  position: fixed;
+  inset: 0;
+
+  opacity: .03;
+
+  background-image:
+    url("https://grainy-gradients.vercel.app/noise.svg");
+
+  z-index: -1;
+}
+
+/* ========================================= */
+/* GENERAL */
+/* ========================================= */
+
+img{
+  width: 100%;
+  display: block;
+}
+
+button{
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+a{
+  text-decoration: none;
+}
+
+section{
+  width: 100%;
+  padding-inline: 7%;
+}
+
+/* ========================================= */
+/* HEADER */
+/* ========================================= */
+
+.header{
+  width: 100%;
+  height: 90px;
+
+  padding-inline: 7%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 1000;
+
+  backdrop-filter: blur(20px);
+
+  background:
+    rgba(5,5,5,0.45);
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.05);
+}
+
+/* ========================================= */
+/* LOGO */
+/* ========================================= */
+
+.logo{
+  width: 210px;
+  object-fit: contain;
+}
+
+/* ========================================= */
+/* NAVBAR */
+/* ========================================= */
+
+.navbar{
+  display: flex;
+  align-items: center;
+  gap: 38px;
+}
+
+.navbar a{
+  color: rgba(255,255,255,0.82);
+
+  font-size: 15px;
+  font-weight: 500;
+
+  transition: .3s;
+
+  position: relative;
+}
+
+.navbar a::after{
+  content: "";
+
+  position: absolute;
+
+  width: 0%;
+  height: 2px;
+
+  left: 0;
+  bottom: -8px;
+
+  background: var(--primary);
+
+  transition: .3s;
+}
+
+.navbar a:hover{
+  color: white;
+}
+
+.navbar a:hover::after{
+  width: 100%;
+}
+
+/* ========================================= */
+/* BUTTONS */
+/* ========================================= */
+
+.btn-login{
+  height: 52px;
+
+  padding-inline: 28px;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      var(--primary-light)
+    );
+
+  color: white;
+
+  font-weight: 700;
+  font-size: 15px;
+
+  transition: .35s;
+
+  box-shadow:
+    0px 10px 30px rgba(242,107,99,0.3);
+}
+
+.btn-login:hover{
+  transform:
+    translateY(-3px);
+}
+
+/* HERO BUTTONS */
+
+.btn-primary{
+  height: 62px;
+
+  padding-inline: 34px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      var(--primary-light)
+    );
+
+  color: white;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  transition: .35s;
+
+  box-shadow:
+    0px 15px 35px rgba(242,107,99,0.35);
+}
+
+.btn-primary:hover{
+  transform:
+    translateY(-4px)
+    scale(1.02);
+}
+
+.btn-secondary{
+  height: 62px;
+
+  padding-inline: 34px;
+
+  border-radius: 18px;
+
+  background:
+    rgba(255,255,255,0.05);
+
+  color: white;
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(14px);
+
+  font-size: 16px;
+  font-weight: 600;
+
+  transition: .35s;
+}
+
+.btn-secondary:hover{
+  background:
+    rgba(255,255,255,0.09);
+
+  transform:
+    translateY(-4px);
+}
+
+/* ========================================= */
+/* HERO */
+/* ========================================= */
+
+.hero{
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  overflow: hidden;
+
+  padding-top: 120px;
+}
+
+/* ========================================= */
+/* VIDEO */
+/* ========================================= */
+
+.hero-video{
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  z-index: 1;
+
+  opacity: .5;
+}
+
+/* ========================================= */
+/* OVERLAY */
+/* ========================================= */
+
+.hero-overlay{
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(5,5,5,0.7),
+      rgba(5,5,5,0.9)
+    );
+
+  z-index: 2;
+}
+
+/* ========================================= */
+/* HERO CONTENT */
+/* ========================================= */
+
+.hero-content{
+  width: 100%;
+  max-width: 1100px;
+
+  position: relative;
+  z-index: 5;
+
+  text-align: center;
+}
+
+/* ========================================= */
+/* HERO BADGE */
+/* ========================================= */
+
+.hero-badge{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 48px;
+
+  padding-inline: 22px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(18px);
+
+  color: white;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  margin-bottom: 30px;
+}
+
+/* ========================================= */
+/* HERO TITLE */
+/* ========================================= */
+
+.hero-content h1{
+  font-size: 92px;
+  line-height: .98;
+
+  font-weight: 900;
+
+  letter-spacing: -3px;
+
+  margin-bottom: 30px;
+}
+
+.hero-content h1 span{
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      #ffb1ab
+    );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ========================================= */
+/* HERO TEXT */
+/* ========================================= */
+
+.hero-content p{
+  max-width: 760px;
+
+  margin-inline: auto;
+  margin-bottom: 45px;
+
+  color: var(--text-gray);
+
+  font-size: 20px;
+  line-height: 1.8;
+}
+
+/* ========================================= */
+/* HERO BUTTONS */
+/* ========================================= */
+
+.hero-buttons{
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+
+  margin-bottom: 65px;
+
+  flex-wrap: wrap;
+}
+
+/* ========================================= */
+/* STATS */
+/* ========================================= */
+
+.hero-stats{
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+
+  flex-wrap: wrap;
+}
+
+.stat-card{
+  min-width: 220px;
+
+  padding: 28px;
+
+  border-radius: 28px;
+
+  background:
+    rgba(255,255,255,0.06);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(20px);
+
+  transition: .35s;
+}
+
+.stat-card:hover{
+  transform:
+    translateY(-8px);
+}
+
+.stat-card h3{
+  font-size: 38px;
+
+  color: white;
+
+  margin-bottom: 10px;
+}
+
+.stat-card span{
+  color: var(--text-gray);
+
+  font-size: 15px;
+}
+
+/* ========================================= */
+/* SECTION TITLES */
+/* ========================================= */
+
+.section-title{
+  text-align: center;
+
+  margin-bottom: 55px;
+}
+
+.section-title span{
+  display: inline-block;
+
+  margin-bottom: 18px;
+
+  color: var(--primary);
+
+  font-size: 14px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.section-title h2{
+  font-size: 62px;
+
+  line-height: 1.1;
+
+  font-weight: 800;
+}
+
+/* ========================================= */
+/* FLOATING REWARDS */
+/* ========================================= */
+
+.floating-rewards{
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+/* ========================================= */
+/* CAROUSEL */
+/* ========================================= */
+
+.carousel-container{
+  position: relative;
+}
+
+.carousel{
+  display: flex;
+  gap: 28px;
+
+  overflow-x: auto;
+
+  scroll-behavior: smooth;
+
+  scrollbar-width: none;
+
+  padding-bottom: 15px;
+}
+
+.carousel::-webkit-scrollbar{
+  display: none;
+}
+
+/* ========================================= */
+/* CAROUSEL BUTTONS */
+/* ========================================= */
+
+.carousel-btn{
+  position: absolute;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 58px;
+  height: 58px;
+
+  border-radius: 50%;
+
+  z-index: 10;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  border:
+    1px solid rgba(255,255,255,0.1);
+
+  backdrop-filter: blur(14px);
+
+  color: white;
+
+  font-size: 24px;
+
+  transition: .35s;
+}
+
+.carousel-btn:hover{
+  background: var(--primary);
+}
+
+.carousel-btn.left{
+  left: -20px;
+}
+
+.carousel-btn.right{
+  right: -20px;
+}
+
+/* ========================================= */
+/* REWARD CARD */
+/* ========================================= */
+
+.premio-card{
+  min-width: 360px;
+
+  border-radius: 34px;
+
+  overflow: hidden;
+
+  position: relative;
+
+  background:
+    rgba(255,255,255,0.06);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(20px);
+
+  transition: .4s;
+}
+
+.premio-card:hover{
+  transform:
+    translateY(-12px)
+    rotateX(3deg)
+    rotateY(-3deg);
+}
+
+/* ========================================= */
+/* IMAGE */
+/* ========================================= */
+
+.premio-image{
+  width: 100%;
+  height: 280px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #1a1a1a,
+      #101010
+    );
+}
+
+.premio-image img{
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: .45s;
+}
+
+.premio-card:hover .premio-image img{
+  transform:
+    scale(1.08);
+}
+
+/* ========================================= */
+/* CONTENT */
+/* ========================================= */
+
+.premio-content{
+  padding: 30px;
+}
+
+.premio-content h3{
+  font-size: 30px;
+
+  margin-bottom: 12px;
+}
+
+.premio-content p{
+  color: var(--text-gray);
+
+  line-height: 1.7;
+
+  margin-bottom: 26px;
+}
+
+.points{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 48px;
+
+  padding-inline: 18px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(242,107,99,0.15);
+
+  color: var(--primary-light);
+
+  font-weight: 800;
+}
+
+/* ========================================= */
+/* HOW IT WORKS */
+/* ========================================= */
+
+.how-it-works{
+  padding-bottom: 120px;
+}
+
+.steps-grid{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+
+  gap: 28px;
+}
+
+.step-card{
+  padding: 40px;
+
+  border-radius: 34px;
+
+  background:
+    rgba(255,255,255,0.05);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(20px);
+
+  transition: .35s;
+}
+
+.step-card:hover{
+  transform:
+    translateY(-10px);
+}
+
+.step-number{
+  font-size: 18px;
+  font-weight: 900;
+
+  color: var(--primary);
+
+  margin-bottom: 25px;
+}
+
+.step-card h3{
+  font-size: 30px;
+
+  margin-bottom: 16px;
+}
+
+.step-card p{
+  color: var(--text-gray);
+
+  line-height: 1.8;
+}
+
+/* ========================================= */
+/* MAIN DRAW */
+/* ========================================= */
+
+.main-draw{
+  padding-bottom: 120px;
+}
+
+.draw-card{
+  width: 100%;
+
+  padding: 60px;
+
+  border-radius: 40px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(242,107,99,0.15),
+      rgba(255,255,255,0.03)
+    );
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+
+  gap: 50px;
+
+  align-items: center;
+
+  backdrop-filter: blur(24px);
+}
+
+.draw-badge{
+  display: inline-flex;
+
+  margin-bottom: 25px;
+
+  padding: 12px 18px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  color: white;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.draw-left h2{
+  font-size: 56px;
+
+  line-height: 1.1;
+
+  margin-bottom: 20px;
+}
+
+.draw-left p{
+  color: var(--text-gray);
+
+  line-height: 1.8;
+
+  margin-bottom: 35px;
+
+  max-width: 650px;
+}
+
+/* ========================================= */
+/* COUNTDOWN */
+/* ========================================= */
+
+.countdown-card{
+  width: 320px;
+
+  padding: 40px;
+
+  border-radius: 32px;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  text-align: center;
+}
+
+.countdown-card span{
+  display: block;
+
+  margin-bottom: 20px;
+
+  color: var(--text-gray);
+}
+
+.countdown-card h3{
+  font-size: 48px;
+
+  color: white;
+
+  letter-spacing: 2px;
+}
+
+/* ========================================= */
+/* CTA */
+/* ========================================= */
+
+.cta-section{
+  padding-bottom: 120px;
+}
+
+.cta-card{
+  padding: 70px;
+
+  border-radius: 42px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(242,107,99,0.18),
+      rgba(255,255,255,0.04)
+    );
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(20px);
+}
+
+.cta-card h2{
+  font-size: 62px;
+
+  margin-bottom: 20px;
+}
+
+.cta-card p{
+  max-width: 700px;
+
+  margin-inline: auto;
+  margin-bottom: 40px;
+
+  color: var(--text-gray);
+
+  line-height: 1.8;
+}
+
+/* ========================================= */
+/* FOOTER */
+/* ========================================= */
+
+.footer{
+  width: 100%;
+
+  padding:
+    70px 7%;
+
+  border-top:
+    1px solid rgba(255,255,255,0.06);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 22px;
+}
+
+.footer-logo{
+  width: 220px;
+}
+
+.footer p{
+  color: var(--text-gray);
+}
+
+/* ========================================= */
+/* RESPONSIVE */
+/* ========================================= */
+
+@media(max-width: 1200px){
+
+  .hero-content h1{
+    font-size: 74px;
+  }
+
+  .steps-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .draw-card{
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media(max-width: 768px){
+
+  section{
+    padding-inline: 5%;
+  }
+
+  .header{
+    padding-inline: 5%;
+  }
+
+  .navbar{
+    display: none;
+  }
+
+  .btn-login{
+    display: none;
+  }
+
+  .hero-content h1{
+    font-size: 54px;
+  }
+
+  .hero-content p{
+    font-size: 17px;
+  }
+
+  .section-title h2{
+    font-size: 42px;
+  }
+
+  .draw-left h2{
+    font-size: 40px;
+  }
+
+  .cta-card h2{
+    font-size: 42px;
+  }
+
+  .countdown-card{
+    width: 100%;
+  }
+
+  .premio-card{
+    min-width: 290px;
+  }
+
+  .carousel-btn{
+    display: none;
+  }
+
+}
+
+@media(max-width: 500px){
+
+  .logo{
+    width: 170px;
+  }
+
+  .hero-content h1{
+    font-size: 42px;
+    letter-spacing: -1px;
+  }
+
+  .hero-buttons{
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-secondary{
+    width: 100%;
+  }
+
+  .hero-stats{
+    flex-direction: column;
+  }
+
+  .stat-card{
+    width: 100%;
+  }
+
+  .draw-card{
+    padding: 35px;
+  }
+
+  .cta-card{
+    padding: 40px 25px;
+  }
+
+}
