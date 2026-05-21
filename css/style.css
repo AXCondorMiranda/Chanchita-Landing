@@ -943,7 +943,180 @@ section{
 .footer p{
   color: var(--text-gray);
 }
+.draw-prizes{
+  display: flex;
+  gap: 18px;
 
+  flex-wrap: wrap;
+
+  margin-bottom: 35px;
+}
+.draw-prize-card{
+  min-width: 240px;
+
+  padding: 16px;
+
+  border-radius: 24px;
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  background:
+    rgba(255,255,255,0.06);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(18px);
+
+  transition: .35s;
+}
+.draw-prize-card:hover{
+  transform:
+    translateY(-5px);
+
+  border:
+    1px solid rgba(242,107,99,0.35);
+
+  box-shadow:
+    0px 10px 30px rgba(242,107,99,0.15);
+}
+.draw-prize-card img{
+  width: 72px;
+  height: 72px;
+
+  object-fit: cover;
+
+  border-radius: 18px;
+}
+.draw-prize-title{
+  display: block;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  margin-bottom: 6px;
+}
+.draw-prize-card small{
+  color: rgba(255,255,255,0.65);
+
+  font-size: 13px;
+}
+/* ========================================= */
+/* MENU TOGGLE */
+/* ========================================= */
+
+.menu-toggle{
+  width: 52px;
+  height: 52px;
+
+  border-radius: 16px;
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  gap: 6px;
+
+  background:
+    rgba(255,255,255,0.06);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(14px);
+
+  cursor: pointer;
+
+  z-index: 1200;
+}
+
+.menu-toggle span{
+  width: 22px;
+  height: 2px;
+
+  border-radius: 999px;
+
+  background: white;
+
+  transition: .35s;
+}
+
+/* ACTIVE */
+
+.menu-toggle.active span:nth-child(1){
+  transform:
+    rotate(45deg)
+    translateY(11px);
+}
+
+.menu-toggle.active span:nth-child(2){
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3){
+  transform:
+    rotate(-45deg)
+    translateY(-11px);
+}
+
+/* ========================================= */
+/* MOBILE MENU */
+/* ========================================= */
+
+.mobile-menu{
+  position: fixed;
+
+  top: 90px;
+  left: 0;
+
+  width: 100%;
+  height: calc(100vh - 90px);
+
+  padding: 40px 5%;
+
+  background:
+    rgba(5,5,5,0.92);
+
+  backdrop-filter: blur(24px);
+
+  z-index: 999;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 25px;
+
+  transform: translateX(100%);
+
+  transition: .45s ease;
+}
+
+.mobile-menu.active{
+  transform: translateX(0%);
+}
+
+/* LINKS */
+
+.mobile-menu a{
+  color: white;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  transition: .3s;
+}
+
+.mobile-menu a:hover{
+  color: var(--primary);
+}
+
+.mobile-btn{
+  margin-top: 20px;
+}
 /* ========================================= */
 /* RESPONSIVE */
 /* ========================================= */
@@ -1013,7 +1186,17 @@ section{
   .carousel-btn{
     display: none;
   }
+    .draw-prizes{
+    flex-direction: column;
+  }
 
+  .draw-prize-card{
+    width: 100%;
+    min-width: unset;
+  }
+  .menu-toggle{
+    display: flex;
+  }
 }
 
 @media(max-width: 500px){

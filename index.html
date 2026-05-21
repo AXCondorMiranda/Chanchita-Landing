@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
   <meta charset="UTF-8">
@@ -15,10 +16,8 @@
   <!-- FONT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 
 </head>
 
@@ -39,23 +38,68 @@
 
     <div class="logo-container">
 
-      <img
-        src="img/logo-blanco-chanchita.png"
-        alt="La Chanchita"
-        class="logo"
-      >
+      <img src="img/logo-blanco-chanchita.png" alt="La Chanchita" class="logo">
 
     </div>
 
     <nav class="navbar">
 
-      <a href="#">Inicio</a>
-      <a href="#">Premios</a>
-      <a href="#">Sorteos</a>
-      <a href="#">Canjes</a>
+      <a href="#inicio">Inicio</a>
+
+      <a href="#premios">
+        Premios
+      </a>
+
+      <a href="#como-funciona">
+        Cómo funciona
+      </a>
+
+      <a href="#sorteo">
+        Sorteo principal
+      </a>
+
+      <a href="#participar">
+        Participar
+      </a>
 
     </nav>
+    <!-- HAMBURGER -->
 
+    <div class="menu-toggle" id="menu-toggle">
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </div>
+
+    <!-- MOBILE MENU -->
+
+    <div class="mobile-menu" id="mobile-menu">
+
+      <a href="#inicio">Inicio</a>
+
+      <a href="#premios">
+        Premios
+      </a>
+
+      <a href="#como-funciona">
+        Cómo funciona
+      </a>
+
+      <a href="#sorteo">
+        Sorteo principal
+      </a>
+
+      <a href="#participar">
+        Participar
+      </a>
+
+      <button class="btn-primary mobile-btn">
+        Participar ahora
+      </button>
+
+    </div>
     <button class="btn-login">
       Ingresar
     </button>
@@ -66,17 +110,11 @@
   <!-- HERO -->
   <!-- ====================================== -->
 
-  <section class="hero">
+  <section class="hero" id="inicio">
 
     <!-- VIDEO -->
 
-    <video
-      class="hero-video"
-      autoplay
-      muted
-      loop
-      playsinline
-    >
+    <video class="hero-video" autoplay muted loop playsinline>
       <source src="video/video-chanchita1.mp4" type="video/mp4">
     </video>
 
@@ -160,7 +198,7 @@
   <!-- FLOATING REWARDS -->
   <!-- ====================================== -->
 
-  <section class="floating-rewards">
+  <section class="floating-rewards" id="premios">
 
     <div class="section-title">
 
@@ -200,7 +238,7 @@
   <!-- HOW IT WORKS -->
   <!-- ====================================== -->
 
-  <section class="how-it-works">
+  <section class="how-it-works" id="como-funciona">
 
     <div class="section-title">
 
@@ -278,30 +316,85 @@
   <!-- MAIN DRAW -->
   <!-- ====================================== -->
 
-  <section class="main-draw">
+  <!-- REEMPLAZA ESTA PARTE -->
+
+  <section class="main-draw" id="sorteo">
 
     <div class="draw-card">
+
+      <!-- LEFT -->
 
       <div class="draw-left">
 
         <span class="draw-badge">
-          🎁 PREMIO PRINCIPAL
+          🎁 SORTEO PRINCIPAL
         </span>
 
         <h2>
-          S/350 para tus zapatillas favoritas 👟
+          Gana una Alexa 🔊
+          + 3 cupones de S/350 👟
         </h2>
 
         <p>
           Participa acumulando tickets.
-          Mientras más compras, más oportunidades tienes.
+          Mientras más compras, más oportunidades tienes
+          de ganar increíbles premios tecnológicos y
+          tus zapatillas favoritas.
         </p>
+
+        <!-- PRIZES -->
+
+        <div class="draw-prizes">
+
+          <!-- ALEXA -->
+
+          <div class="draw-prize-card">
+
+            <img src="img/premios/alexa.png" alt="Alexa">
+
+            <div>
+
+              <span class="draw-prize-title">
+                Alexa Echo Dot
+              </span>
+
+              <small>
+                Premio tecnológico
+              </small>
+
+            </div>
+
+          </div>
+
+          <!-- CUPONES -->
+
+          <div class="draw-prize-card">
+
+            <img src="img/premios/zapatillas.png" alt="Cupones">
+
+            <div>
+
+              <span class="draw-prize-title">
+                3 Cupones S/350
+              </span>
+
+              <small>
+                Para tus zapatillas favoritas
+              </small>
+
+            </div>
+
+          </div>
+
+        </div>
 
         <button class="btn-primary">
           Participar ahora
         </button>
 
       </div>
+
+      <!-- RIGHT -->
 
       <div class="draw-right">
 
@@ -312,7 +405,7 @@
           </span>
 
           <h3 id="countdown">
-            03 : 12 : 24 : 55
+            06 : 23 : 50 : 54
           </h3>
 
         </div>
@@ -327,7 +420,7 @@
   <!-- CTA -->
   <!-- ====================================== -->
 
-  <section class="cta-section">
+  <section class="cta-section" id="participar">
 
     <div class="cta-card">
 
@@ -353,11 +446,7 @@
 
   <footer class="footer">
 
-    <img
-      src="img/logo-blanco-chanchita.png"
-      alt=""
-      class="footer-logo"
-    >
+    <img src="img/logo-blanco-chanchita.png" alt="" class="footer-logo">
 
     <p>
       Hoy por ti, mañana por mí.
@@ -370,4 +459,5 @@
   <script src="js/app.js"></script>
 
 </body>
+
 </html>

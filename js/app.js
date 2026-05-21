@@ -561,3 +561,91 @@ console.log(
     font-size:14px;
   `
 );
+// ==============================================
+// SMOOTH NAVIGATION
+// ==============================================
+
+document.querySelectorAll('.navbar a')
+  .forEach(anchor => {
+
+    anchor.addEventListener('click', function (e) {
+
+      e.preventDefault();
+
+      const target =
+        document.querySelector(
+          this.getAttribute('href')
+        );
+
+      if(target){
+
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+
+      }
+
+    });
+
+});
+// ==============================================
+// MOBILE MENU
+// ==============================================
+
+const menuToggle =
+  document.getElementById("menu-toggle");
+
+const mobileMenu =
+  document.getElementById("mobile-menu");
+
+// OPEN/CLOSE
+
+menuToggle.addEventListener("click", () => {
+
+  menuToggle.classList.toggle("active");
+
+  mobileMenu.classList.toggle("active");
+
+});
+
+// CLOSE WHEN CLICK LINK
+
+document.querySelectorAll(".mobile-menu a")
+  .forEach(link => {
+
+    link.addEventListener("click", () => {
+
+      mobileMenu.classList.remove("active");
+
+      menuToggle.classList.remove("active");
+
+    });
+
+});
+
+// SMOOTH MOBILE NAV
+
+document.querySelectorAll('.mobile-menu a')
+  .forEach(anchor => {
+
+    anchor.addEventListener('click', function (e) {
+
+      e.preventDefault();
+
+      const target =
+        document.querySelector(
+          this.getAttribute('href')
+        );
+
+      if(target){
+
+        target.scrollIntoView({
+          behavior: 'smooth'
+        });
+
+      }
+
+    });
+
+});
