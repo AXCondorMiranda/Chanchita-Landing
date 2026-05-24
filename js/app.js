@@ -65,7 +65,7 @@ const premios = [
   {
     titulo: "Alexa Echo Dot",
     descripcion: "Controla tu casa con comandos de voz.",
-    puntos: 360,
+    puntos: 400,
     imagen: "img/premios/alexa.png",
     glow: "#4DA3FF"
   },
@@ -649,3 +649,32 @@ document.querySelectorAll('.mobile-menu a')
     });
 
 });
+// ==============================================
+// FUTURISTIC PROGRESS BAR
+// ==============================================
+
+// CAMBIA SOLO ESTE VALOR CADA DÍA
+
+const porcentajeSorteo = 0;
+
+// ELEMENTOS
+
+const progressFill =
+  document.getElementById("progress-fill");
+
+const progressPercent =
+  document.getElementById("progress-percent");
+
+// ANIMACIÓN
+
+setTimeout(() => {
+
+  progressFill.style.width =
+    `${porcentajeSorteo}%`;
+
+}, 500);
+
+// TEXTO
+
+progressPercent.innerHTML =
+  `${porcentajeSorteo}%`;
