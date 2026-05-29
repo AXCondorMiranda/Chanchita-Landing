@@ -1,509 +1,424 @@
-<!-- index.html -->
-
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>La Chanchita</title>
-
-  <!-- CSS -->
+  <title>La Chanchita 🐷</title>
   <link rel="stylesheet" href="css/style.css">
-
-  <!-- FONT -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
-
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 
 <body>
-
-  <!-- ====================================== -->
-  <!-- BACKGROUND EFFECTS -->
-  <!-- ====================================== -->
-
-  <div class="bg-gradient"></div>
-  <div class="bg-noise"></div>
-
-  <!-- ====================================== -->
-  <!-- NAVBAR -->
-  <!-- ====================================== -->
+  <!-- HEADER -->
 
   <header class="header">
 
-    <div class="logo-container">
+    <div class="header-container">
 
-      <img src="img/logo-blanco-chanchita.png" alt="La Chanchita" class="logo">
+      <!-- LOGO -->
+      <div class="logo">
+        🐷 La Chanchita
+      </div>
 
-    </div>
+      <!-- NAV -->
+      <nav class="nav">
 
-    <nav class="navbar">
+        <a href="#how">
+          Cómo jugar
+        </a>
 
-      <a href="#inicio">Inicio</a>
+        <a href="#transparency">
+          Transparencia
+        </a>
 
-      <a href="#premios">
-        Premios
-      </a>
+        <a href="#faq">
+          FAQ
+        </a>
 
-      <a href="#como-funciona">
-        Cómo funciona
-      </a>
+      </nav>
 
-      <a href="#sorteo">
-        Sorteo principal
-      </a>
-
-      <a href="#participar">
+      <!-- CTA -->
+      <button class="header-btn">
         Participar
-      </a>
-
-    </nav>
-    <!-- HAMBURGER -->
-
-    <div class="menu-toggle" id="menu-toggle">
-
-      <span></span>
-      <span></span>
-      <span></span>
-
-    </div>
-
-    <!-- MOBILE MENU -->
-
-    <div class="mobile-menu" id="mobile-menu">
-
-      <a href="#inicio">Inicio</a>
-
-      <a href="#premios">
-        Premios
-      </a>
-
-      <a href="#como-funciona">
-        Cómo funciona
-      </a>
-
-      <a href="#sorteo">
-        Sorteo principal
-      </a>
-
-      <a href="#participar">
-        Participar
-      </a>
-
-      <button class="btn-primary mobile-btn">
-        Participar ahora
       </button>
 
     </div>
-    <button class="btn-login">
-      Ingresar
-    </button>
 
   </header>
-  <!-- ====================================== -->
-  <!-- FUTURISTIC PROGRESS BAR -->
-  <!-- ====================================== -->
-
-  <section class="sorteo-progress">
-
-    <div class="progress-wrapper">
-
-      <!-- LIGHT EFFECT -->
-
-      <div class="progress-light"></div>
-
-      <!-- TOP -->
-
-      <div class="progress-top">
-
-        <div class="progress-live">
-
-          <span class="live-ping"></span>
-
-          <p>
-            Sorteo principal activo
-          </p>
-
-        </div>
-
-        <span class="progress-percent" id="progress-percent">
-          0%
-        </span>
-
-      </div>
-
-      <!-- BAR -->
-
-      <div class="progress-bar">
-
-        <div class="progress-fill" id="progress-fill">
-
-          <div class="progress-glow"></div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-  <!-- ====================================== -->
   <!-- HERO -->
-  <!-- ====================================== -->
-
-  <section class="hero" id="inicio">
-
-    <!-- VIDEO -->
-
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src="video/video-chanchita1.mp4" type="video/mp4">
-    </video>
-
-    <!-- OVERLAY -->
-
-    <div class="hero-overlay"></div>
-
-    <!-- CONTENT -->
+  <section class="hero">
 
     <div class="hero-content">
 
-      <div class="hero-badge">
-        🔥 Sorteos y premios exclusivos
-      </div>
+      <!-- IZQUIERDA -->
+      <div class="hero-left">
 
-      <h1>
-        Participa.
-        <span>Acumula puntos.</span>
-        Gana premios increíbles.
-      </h1>
-
-      <p>
-        La nueva experiencia de recompensas donde cada compra
-        puede convertirse en zapatillas, Alexa, iPhone,
-        giftcards y mucho más.
-      </p>
-
-      <div class="hero-buttons">
-
-        <button class="btn-primary">
-          Quiero participar
-        </button>
-
-        <button class="btn-secondary">
-          Ver premios
-        </button>
-
-      </div>
-
-      <!-- STATS -->
-
-      <div class="hero-stats">
-
-        <div class="stat-card">
-
-          <h3>+12K</h3>
-
-          <span>
-            Usuarios
-          </span>
-
+        <div class="badge">
+          🐷 Primer sorteo oficial
         </div>
 
-        <div class="stat-card">
-
-          <h3>320+</h3>
-
-          <span>
-            Premios entregados
-          </span>
-
-        </div>
-
-        <div class="stat-card">
-
-          <h3>S/25K</h3>
-
-          <span>
-            En recompensas
-          </span>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- ====================================== -->
-  <!-- FLOATING REWARDS -->
-  <!-- ====================================== -->
-
-  <section class="floating-rewards" id="premios">
-
-    <div class="section-title">
-
-      <span>
-        PREMIOS DISPONIBLES
-      </span>
-
-      <h2>
-        Canjea tus puntos
-      </h2>
-
-    </div>
-
-    <!-- CAROUSEL -->
-
-    <div class="carousel-container">
-
-      <button class="carousel-btn left" id="prev">
-        ←
-      </button>
-
-      <div class="carousel" id="carousel">
-
-        <!-- JS -->
-
-      </div>
-
-      <button class="carousel-btn right" id="next">
-        →
-      </button>
-
-    </div>
-
-  </section>
-
-  <!-- ====================================== -->
-  <!-- HOW IT WORKS -->
-  <!-- ====================================== -->
-
-  <section class="how-it-works" id="como-funciona">
-
-    <div class="section-title">
-
-      <span>
-        CÓMO FUNCIONA
-      </span>
-
-      <h2>
-        Participa en 3 simples pasos
-      </h2>
-
-    </div>
-
-    <div class="steps-grid">
-
-      <!-- STEP -->
-
-      <div class="step-card">
-
-        <div class="step-number">
-          01
-        </div>
-
-        <h3>
-          Compra
-        </h3>
+        <h1>
+          🎁 Gánate una Alexa <br>
+          por solo S/5
+        </h1>
 
         <p>
-          Realiza compras en los comercios afiliados.
+          Solo 120 boletos • Sorteo en vivo • Ganador real
         </p>
 
-      </div>
+        <div class="hero-buttons">
+          <button class="btn-primary">
+            Participar ahora
+          </button>
 
-      <!-- STEP -->
-
-      <div class="step-card">
-
-        <div class="step-number">
-          02
+          <button class="btn-secondary">
+            ¿Cómo funciona?
+          </button>
         </div>
 
-        <h3>
-          Acumula puntos
-        </h3>
-
-        <p>
-          Cada compra suma tickets y puntos automáticamente.
-        </p>
-
       </div>
 
-      <!-- STEP -->
+      <!-- DERECHA -->
+      <div class="hero-right">
 
-      <div class="step-card">
+        <!-- MODELO 3D -->
+        <div class="alexa-container">
 
-        <div class="step-number">
-          03
+          <model-viewer src="models/alexa.glb" auto-rotate shadow-intensity="0" exposure="1.2" disable-pan disable-zoom>
+          </model-viewer>
+
         </div>
 
-        <h3>
-          Canjea premios
-        </h3>
+        <!-- PROGRESO -->
+        <div class="progress-card">
 
-        <p>
-          Usa tus puntos para obtener premios increíbles.
-        </p>
+          <div class="progress-header">
 
-      </div>
+            <span class="sold">
+              72 / 120 vendidos
+            </span>
 
-    </div>
-
-  </section>
-
-  <!-- ====================================== -->
-  <!-- MAIN DRAW -->
-  <!-- ====================================== -->
-
-  <!-- REEMPLAZA ESTA PARTE -->
-
-  <section class="main-draw" id="sorteo">
-
-    <div class="draw-card">
-
-      <!-- LEFT -->
-
-      <div class="draw-left">
-
-        <span class="draw-badge">
-          🎁 SORTEO PRINCIPAL
-        </span>
-
-        <h2>
-          Gana una Alexa 🔊
-          + 3 cupones de S/350 👟
-        </h2>
-
-        <p>
-          Participa acumulando tickets.
-          Mientras más compras, más oportunidades tienes
-          de ganar increíbles premios tecnológicos y
-          tus zapatillas favoritas.
-        </p>
-
-        <!-- PRIZES -->
-
-        <div class="draw-prizes">
-
-          <!-- ALEXA -->
-
-          <div class="draw-prize-card">
-
-            <img src="img/premios/alexa.png" alt="Alexa">
-
-            <div>
-
-              <span class="draw-prize-title">
-                Alexa Echo Dot
-              </span>
-
-              <small>
-                Premio tecnológico
-              </small>
-
-            </div>
+            <span class="remaining">
+              48 restantes
+            </span>
 
           </div>
 
-          <!-- CUPONES -->
+          <div class="progress">
 
-          <div class="draw-prize-card">
-
-            <img src="img/premios/zapatillas.png" alt="Cupones">
-
-            <div>
-
-              <span class="draw-prize-title">
-                3 Cupones S/350
-              </span>
-
-              <small>
-                Para tus zapatillas favoritas
-              </small>
-
-            </div>
+            <div class="progress-fill"></div>
 
           </div>
 
         </div>
 
-        <button class="btn-primary">
-          Participar ahora
-        </button>
-
-      </div>
-
-      <!-- RIGHT -->
-
-      <div class="draw-right">
-
-        <div class="countdown-card">
-
-          <span>
-            Finaliza en
-          </span>
-
-          <h3 id="countdown">
-            06 : 23 : 50 : 54
-          </h3>
-
-        </div>
-
       </div>
 
     </div>
 
   </section>
 
-  <!-- ====================================== -->
-  <!-- CTA -->
-  <!-- ====================================== -->
+  <!-- TRUST -->
+  <section class="trust-section">
 
-  <section class="cta-section" id="participar">
+    <div class="trust-container">
 
-    <div class="cta-card">
+      <div class="trust-item">
+        ✅ Sorteo en vivo
+      </div>
 
-      <h2>
-        Empieza a ganar hoy 🚀
-      </h2>
+      <div class="trust-item">
+        ✅ Números visibles
+      </div>
 
-      <p>
-        Únete a La Chanchita y convierte tus compras en premios.
-      </p>
+      <div class="trust-item">
+        ✅ Participación por Yape
+      </div>
 
-      <button class="btn-primary">
-        Crear cuenta
-      </button>
+      <div class="trust-item">
+        ✅ Ganadores reales
+      </div>
 
     </div>
 
   </section>
 
-  <!-- ====================================== -->
-  <!-- FOOTER -->
-  <!-- ====================================== -->
+  <!-- HOW TO PLAY -->
+  <section class="how-section">
 
-  <footer class="footer">
-
-    <img src="img/logo-blanco-chanchita.png" alt="" class="footer-logo">
+    <h2>
+      ¿Cómo jugar? 🎟️
+    </h2>
 
     <p>
-      Hoy por ti, mañana por mí.
+      Participar es facilito causa 👀
+    </p>
+
+    <div class="steps-container">
+
+      <div class="step-card">
+
+        <div class="step-number">
+          1
+        </div>
+
+        <h3>
+          💸 Yapea S/5
+        </h3>
+
+      </div>
+
+      <div class="step-card">
+
+        <div class="step-number">
+          2
+        </div>
+
+        <h3>
+          📲 Envía captura
+        </h3>
+
+      </div>
+
+      <div class="step-card">
+
+        <div class="step-number">
+          3
+        </div>
+
+        <h3>
+          🎟️ Recibe tu número
+        </h3>
+
+      </div>
+
+      <div class="step-card">
+
+        <div class="step-number">
+          4
+        </div>
+
+        <h3>
+          🎥 Mira el live
+        </h3>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- COUNTER -->
+  <section class="counter-section">
+
+    <div class="counter-box">
+
+      <h2>
+        🔥 Quedan solo 48 boletos
+      </h2>
+
+      <div class="counter-number">
+        72 / 120
+      </div>
+
+      <div class="progress">
+
+        <div class="progress-fill"></div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PARTICIPANTS -->
+  <section class="participants-section">
+
+    <h2>
+      Participantes recientes 🐷
+    </h2>
+
+    <div class="participants-container">
+
+      <div class="participant">
+        🎟️ Ticket #23 — Luis C.
+      </div>
+
+      <div class="participant">
+        🎟️ Ticket #51 — Andrea M.
+      </div>
+
+      <div class="participant">
+        🎟️ Ticket #77 — Kevin R.
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- TRANSPARENCY -->
+  <section class="transparency-section">
+
+    <h2>
+      Aquí todo es REAL 🐷
+    </h2>
+
+    <div class="transparency-grid">
+
+      <div class="transparency-card">
+        🎥 Sorteos transmitidos en vivo
+      </div>
+
+      <div class="transparency-card">
+        🎟️ Participantes visibles
+      </div>
+
+      <div class="transparency-card">
+        🎁 Premios reales
+      </div>
+
+      <div class="transparency-card">
+        🤝 Comunidad real
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- LIVE -->
+  <section class="live-section">
+
+    <div class="live-box">
+
+      <h2>
+        📅 Sorteo EN VIVO
+      </h2>
+
+      <p>
+        Viernes — 8:00PM <br>
+        Instagram Live
+      </p>
+
+      <button>
+        Agregar recordatorio
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- FUTURE -->
+  <section class="future-section">
+
+    <h2>
+      Esto recién comienza 👀
+    </h2>
+
+    <div class="future-products">
+
+      <div class="future-card">
+        PS5
+      </div>
+
+      <div class="future-card">
+        AirPods
+      </div>
+
+      <div class="future-card">
+        iPhone
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+
+    <h2>
+      Preguntas frecuentes
+    </h2>
+
+    <div class="faq-container">
+
+      <div class="faq-item">
+
+        <h3>
+          ¿Cómo participo?
+        </h3>
+
+        <p>
+          Yapea S/5 y envíanos tu captura por WhatsApp.
+        </p>
+
+      </div>
+
+      <div class="faq-item">
+
+        <h3>
+          ¿Cómo recibo mi número?
+        </h3>
+
+        <p>
+          Te enviaremos tu ticket digital inmediatamente.
+        </p>
+
+      </div>
+
+      <div class="faq-item">
+
+        <h3>
+          ¿Dónde será el live?
+        </h3>
+
+        <p>
+          En nuestro Instagram oficial.
+        </p>
+
+      </div>
+
+      <div class="faq-item">
+
+        <h3>
+          ¿Cómo sé que es real?
+        </h3>
+
+        <p>
+          Todo se transmite en vivo y los ganadores serán publicados.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-socials">
+
+      <a href="#">
+        Instagram
+      </a>
+
+      <a href="#">
+        TikTok
+      </a>
+
+      <a href="#">
+        WhatsApp
+      </a>
+
+    </div>
+
+    <p>
+      Hoy por ti, mañana por mí 🐷
     </p>
 
   </footer>
-
-  <!-- JS -->
-
   <script src="js/app.js"></script>
-
 </body>
 
 </html>

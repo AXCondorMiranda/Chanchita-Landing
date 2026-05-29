@@ -1,680 +1,222 @@
-// ==============================================
-// LA CHANCHITA
-// FUTURISTIC EXPERIENCE
-// ==============================================
+/* =========================
+   SMOOTH SCROLL BUTTONS
+========================= */
 
-// ==============================================
-// WHATSAPP
-// ==============================================
+document.querySelectorAll('button').forEach(button => {
 
-const WHATSAPP_NUMBER = "51931329862";
+  button.addEventListener('click', () => {
 
-function openWhatsApp(message = "Hola 👋 quiero participar en La Chanchita") {
+    const text = button.innerText.toLowerCase();
 
-  const url =
-    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    if(text.includes('cómo')){
 
-  window.open(url, "_blank");
+      document.querySelector('.how-section')
+        .scrollIntoView({
+          behavior:'smooth'
+        });
 
-}
+    }
 
-// ==============================================
-// BUTTONS ACTIONS
-// ==============================================
+    if(text.includes('participar')){
 
-document.querySelectorAll(".btn-primary").forEach((button) => {
+      window.open(
+        'https://wa.me/51931329862',
+        '_blank'
+      );
 
-  button.addEventListener("click", () => {
-
-    openWhatsApp(
-      "Hola 👋 quiero participar en los sorteos de La Chanchita"
-    );
+    }
 
   });
 
 });
 
-document.querySelectorAll(".btn-secondary").forEach((button) => {
+/* =========================
+   PROGRESS BAR DYNAMIC
+========================= */
 
-  button.addEventListener("click", () => {
+const totalTickets = 120;
+const soldTickets = 72;
 
-    document
-      .querySelector(".floating-rewards")
-      .scrollIntoView({
-        behavior: "smooth"
-      });
+const percentage =
+  (soldTickets / totalTickets) * 100;
 
-  });
+document.querySelectorAll('.progress-fill')
+  .forEach(bar => {
+
+    bar.style.width = percentage + '%';
 
 });
 
-document.querySelector(".btn-login")?.addEventListener("click", () => {
+/* =========================
+   COUNTER UPDATE
+========================= */
 
-  openWhatsApp(
-    "Hola 👋 quiero ingresar a La Chanchita"
+const counterNumber =
+  document.querySelector('.counter-number');
+
+counterNumber.innerHTML = `
+  ${soldTickets} / ${totalTickets}
+`;
+
+/* =========================
+   REMAINING TICKETS
+========================= */
+
+const remaining =
+  totalTickets - soldTickets;
+
+const counterTitle =
+  document.querySelector('.counter-box h2');
+
+counterTitle.innerHTML = `
+  🔥 Quedan solo ${remaining} boletos
+`;
+
+/* =========================
+   PARTICIPANTS FAKE LIVE
+========================= */
+
+const participantsContainer =
+  document.querySelector(
+    '.participants-container'
   );
 
-});
+const fakeParticipants = [
 
-// ==============================================
-// REWARDS DATABASE
-// ==============================================
-
-const premios = [
-
-  {
-    titulo: "Alexa Echo Dot",
-    descripcion: "Controla tu casa con comandos de voz.",
-    puntos: 400,
-    imagen: "img/premios/alexa.png",
-    glow: "#4DA3FF"
-  },
-
-  {
-    titulo: "Pelota de futbol pro",
-    descripcion: "Juega y disfruta.",
-    puntos: 180,
-    imagen: "img/premios/balon-futbol.png",
-    glow: "#F26B63"
-  },
-
-  {
-    titulo: "Licuadora Oster",
-    descripcion: "Licuadora pro",
-    puntos: 260,
-    imagen: "img/premios/licuadora.png",
-    glow: "#FFFFFF"
-  },
-
-  {
-    titulo: "Airpods Pro",
-    descripcion: "Audio premium para tu día.",
-    puntos: 1400,
-    imagen: "img/premios/airpods.png",
-    glow: "#ff914d"
-  },
-
-  {
-    titulo: "Gift Card de 100 soles",
-    descripcion: "Canjea saldo para tus compras.",
-    puntos: 150,
-    imagen: "img/premios/giftcard.png",
-    glow: "#00FFA3"
-  }
+  '🎟️ Ticket #81 — Carlos M.',
+  '🎟️ Ticket #82 — Fernanda R.',
+  '🎟️ Ticket #83 — Kevin T.',
+  '🎟️ Ticket #84 — Andrea C.',
+  '🎟️ Ticket #85 — Luis A.'
 
 ];
 
-// ==============================================
-// REFERENCES
-// ==============================================
+let participantIndex = 0;
 
-const carousel = document.getElementById("carousel");
+setInterval(() => {
 
-// ==============================================
-// CREATE REWARD CARDS
-// ==============================================
+  if(participantIndex >= fakeParticipants.length)
+    return;
 
-function renderPremios() {
+  const participant =
+    document.createElement('div');
 
-  carousel.innerHTML = "";
+  participant.classList.add('participant');
 
-  premios.forEach((premio, index) => {
+  participant.style.opacity = '0';
+  participant.style.transform =
+    'translateY(20px)';
 
-    const card = document.createElement("div");
+  participant.innerHTML =
+    fakeParticipants[participantIndex];
 
-    card.classList.add("premio-card");
+  participantsContainer.prepend(participant);
 
-    card.style.animationDelay = `${index * 0.12}s`;
+  setTimeout(() => {
 
-    card.innerHTML = `
+    participant.style.transition =
+      '0.4s ease';
 
-      <div 
-        class="card-glow"
-        style="
-          background:${premio.glow};
-        "
-      ></div>
+    participant.style.opacity = '1';
 
-      <div class="premio-image">
+    participant.style.transform =
+      'translateY(0px)';
 
-        <img 
-          src="${premio.imagen}" 
-          alt="${premio.titulo}"
-        >
+  },100);
 
-      </div>
+  participantIndex++;
 
-      <div class="premio-content">
+},4000);
 
-        <h3>
-          ${premio.titulo}
-        </h3>
+/* =========================
+   FAQ ACCORDION
+========================= */
 
-        <p>
-          ${premio.descripcion}
-        </p>
+const faqItems =
+  document.querySelectorAll('.faq-item');
 
-        <div class="card-bottom">
+faqItems.forEach(item => {
 
-          <span class="points">
-            ${premio.puntos} pts
-          </span>
+  const answer =
+    item.querySelector('p');
 
-          <button class="claim-btn">
-            Canjear
-          </button>
+  answer.style.display = 'none';
 
-        </div>
+  item.addEventListener('click', () => {
 
-      </div>
+    const isOpen =
+      answer.style.display === 'block';
 
-    `;
+    document.querySelectorAll('.faq-item p')
+      .forEach(p => {
 
-    // WhatsApp reward button
-
-    card.querySelector(".claim-btn")
-      .addEventListener("click", () => {
-
-        openWhatsApp(
-          `Hola 👋 quiero canjear el premio: ${premio.titulo}`
-        );
+        p.style.display = 'none';
 
       });
 
-    // 3D hover effect
+    if(!isOpen){
 
-    card.addEventListener("mousemove", (e) => {
-
-      const rect = card.getBoundingClientRect();
-
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-
-      const rotateX = ((y - centerY) / 18) * -1;
-      const rotateY = ((x - centerX) / 18);
-
-      card.style.transform =
-        `
-          perspective(1000px)
-          rotateX(${rotateX}deg)
-          rotateY(${rotateY}deg)
-          translateY(-10px)
-        `;
-
-    });
-
-    card.addEventListener("mouseleave", () => {
-
-      card.style.transform =
-        `
-          perspective(1000px)
-          rotateX(0deg)
-          rotateY(0deg)
-          translateY(0px)
-        `;
-
-    });
-
-    carousel.appendChild(card);
-
-  });
-
-}
-
-renderPremios();
-
-// ==============================================
-// CAROUSEL
-// ==============================================
-
-const next = document.getElementById("next");
-const prev = document.getElementById("prev");
-
-next?.addEventListener("click", () => {
-
-  carousel.scrollBy({
-    left: 420,
-    behavior: "smooth"
-  });
-
-});
-
-prev?.addEventListener("click", () => {
-
-  carousel.scrollBy({
-    left: -420,
-    behavior: "smooth"
-  });
-
-});
-
-// ==============================================
-// AUTO SCROLL CAROUSEL
-// ==============================================
-
-let autoScroll = setInterval(() => {
-
-  if (
-    carousel.scrollLeft +
-    carousel.clientWidth >=
-    carousel.scrollWidth - 5
-  ) {
-
-    carousel.scrollTo({
-      left: 0,
-      behavior: "smooth"
-    });
-
-  } else {
-
-    carousel.scrollBy({
-      left: 1,
-      behavior: "smooth"
-    });
-
-  }
-
-}, 25);
-
-carousel.addEventListener("mouseenter", () => {
-
-  clearInterval(autoScroll);
-
-});
-
-carousel.addEventListener("mouseleave", () => {
-
-  autoScroll = setInterval(() => {
-
-    if (
-      carousel.scrollLeft +
-      carousel.clientWidth >=
-      carousel.scrollWidth - 5
-    ) {
-
-      carousel.scrollTo({
-        left: 0,
-        behavior: "smooth"
-      });
-
-    } else {
-
-      carousel.scrollBy({
-        left: 1,
-        behavior: "smooth"
-      });
+      answer.style.display = 'block';
 
     }
 
-  }, 25);
+  });
 
 });
 
-// ==============================================
-// COUNTDOWN
-// ==============================================
+/* =========================
+   FLOATING ANIMATION ON SCROLL
+========================= */
 
-const countdownElement =
-  document.getElementById("countdown");
+const observer =
+  new IntersectionObserver(entries => {
 
-const targetDate =
-  new Date();
+    entries.forEach(entry => {
 
-targetDate.setDate(targetDate.getDate() + 7);
+      if(entry.isIntersecting){
 
-function updateCountdown() {
+        entry.target.style.opacity = '1';
 
-  const now = new Date();
+        entry.target.style.transform =
+          'translateY(0px)';
 
-  const distance =
-    targetDate - now;
+      }
 
-  const days =
-    Math.floor(distance / (1000 * 60 * 60 * 24));
+    });
 
-  const hours =
-    Math.floor(
-      (distance % (1000 * 60 * 60 * 24))
-      /
-      (1000 * 60 * 60)
-    );
+  },{
+    threshold:0.15
+  });
 
-  const minutes =
-    Math.floor(
-      (distance % (1000 * 60 * 60))
-      /
-      (1000 * 60)
-    );
-
-  const seconds =
-    Math.floor(
-      (distance % (1000 * 60))
-      /
-      1000
-    );
-
-  countdownElement.innerHTML =
-    `
-      ${String(days).padStart(2, "0")}
-      :
-      ${String(hours).padStart(2, "0")}
-      :
-      ${String(minutes).padStart(2, "0")}
-      :
-      ${String(seconds).padStart(2, "0")}
-    `;
-
-}
-
-setInterval(updateCountdown, 1000);
-
-updateCountdown();
-
-// ==============================================
-// PARALLAX HERO
-// ==============================================
-
-const hero = document.querySelector(".hero");
-
-window.addEventListener("mousemove", (e) => {
-
-  const x =
-    (window.innerWidth / 2 - e.clientX) / 90;
-
-  const y =
-    (window.innerHeight / 2 - e.clientY) / 90;
-
-  hero.style.backgroundPosition =
-    `${x}px ${y}px`;
-
-});
-
-// ==============================================
-// SCROLL REVEAL
-// ==============================================
-
-const revealElements =
+const animatedElements =
   document.querySelectorAll(
-    ".premio-card, .step-card, .stat-card, .draw-card, .cta-card"
+    '.step-card, .participant, .transparency-card, .future-card'
   );
 
-const revealOnScroll = () => {
+animatedElements.forEach(el => {
 
-  revealElements.forEach((element) => {
+  el.style.opacity = '0';
+  el.style.transform =
+    'translateY(30px)';
+  el.style.transition =
+    '0.6s ease';
 
-    const windowHeight =
-      window.innerHeight;
+  observer.observe(el);
 
-    const revealTop =
-      element.getBoundingClientRect().top;
+});
 
-    if (revealTop < windowHeight - 100) {
 
-      element.classList.add("active-reveal");
+/* =========================
+   ADD REMINDER BUTTON
+========================= */
 
-    }
+const reminderButton =
+  document.querySelector('.live-box button');
 
-  });
+reminderButton.addEventListener('click', () => {
 
-};
-
-window.addEventListener("scroll", revealOnScroll);
-
-revealOnScroll();
-
-// ==============================================
-// FLOATING PARTICLES
-// ==============================================
-
-const particlesContainer =
-  document.createElement("div");
-
-particlesContainer.classList.add("particles");
-
-document.body.appendChild(
-  particlesContainer
-);
-
-for (let i = 0; i < 35; i++) {
-
-  const particle =
-    document.createElement("span");
-
-  particle.classList.add("particle");
-
-  particle.style.left =
-    Math.random() * 100 + "vw";
-
-  particle.style.animationDuration =
-    8 + Math.random() * 10 + "s";
-
-  particle.style.animationDelay =
-    Math.random() * 5 + "s";
-
-  particle.style.opacity =
-    Math.random();
-
-  particle.style.width =
-    particle.style.height =
-    Math.random() * 6 + 2 + "px";
-
-  particlesContainer.appendChild(
-    particle
+  alert(
+    '🐷 Recordatorio agregado para el live del sorteo.'
   );
 
-}
-
-// ==============================================
-// GLOW CURSOR
-// ==============================================
-
-const glowCursor =
-  document.createElement("div");
-
-glowCursor.classList.add("glow-cursor");
-
-document.body.appendChild(glowCursor);
-
-window.addEventListener("mousemove", (e) => {
-
-  glowCursor.style.left =
-    e.clientX + "px";
-
-  glowCursor.style.top =
-    e.clientY + "px";
-
 });
-
-// ==============================================
-// TILT HERO STATS
-// ==============================================
-
-document.querySelectorAll(".stat-card")
-  .forEach((card) => {
-
-    card.addEventListener("mousemove", (e) => {
-
-      const rect =
-        card.getBoundingClientRect();
-
-      const x =
-        e.clientX - rect.left;
-
-      const y =
-        e.clientY - rect.top;
-
-      const centerX =
-        rect.width / 2;
-
-      const centerY =
-        rect.height / 2;
-
-      const rotateX =
-        ((y - centerY) / 20) * -1;
-
-      const rotateY =
-        ((x - centerX) / 20);
-
-      card.style.transform =
-        `
-          perspective(1000px)
-          rotateX(${rotateX}deg)
-          rotateY(${rotateY}deg)
-          translateY(-8px)
-        `;
-
-    });
-
-    card.addEventListener("mouseleave", () => {
-
-      card.style.transform =
-        `
-          perspective(1000px)
-          rotateX(0deg)
-          rotateY(0deg)
-        `;
-
-    });
-
-});
-
-// ==============================================
-// CONSOLE SIGNATURE 😎
-// ==============================================
-
-console.log(
-  "%c🐷 LA CHANCHITA",
-  `
-    color:#F26B63;
-    font-size:28px;
-    font-weight:bold;
-  `
-);
-
-console.log(
-  "%cHoy por ti, mañana por mí 🚀",
-  `
-    color:white;
-    font-size:14px;
-  `
-);
-// ==============================================
-// SMOOTH NAVIGATION
-// ==============================================
-
-document.querySelectorAll('.navbar a')
-  .forEach(anchor => {
-
-    anchor.addEventListener('click', function (e) {
-
-      e.preventDefault();
-
-      const target =
-        document.querySelector(
-          this.getAttribute('href')
-        );
-
-      if(target){
-
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-
-      }
-
-    });
-
-});
-// ==============================================
-// MOBILE MENU
-// ==============================================
-
-const menuToggle =
-  document.getElementById("menu-toggle");
-
-const mobileMenu =
-  document.getElementById("mobile-menu");
-
-// OPEN/CLOSE
-
-menuToggle.addEventListener("click", () => {
-
-  menuToggle.classList.toggle("active");
-
-  mobileMenu.classList.toggle("active");
-
-});
-
-// CLOSE WHEN CLICK LINK
-
-document.querySelectorAll(".mobile-menu a")
-  .forEach(link => {
-
-    link.addEventListener("click", () => {
-
-      mobileMenu.classList.remove("active");
-
-      menuToggle.classList.remove("active");
-
-    });
-
-});
-
-// SMOOTH MOBILE NAV
-
-document.querySelectorAll('.mobile-menu a')
-  .forEach(anchor => {
-
-    anchor.addEventListener('click', function (e) {
-
-      e.preventDefault();
-
-      const target =
-        document.querySelector(
-          this.getAttribute('href')
-        );
-
-      if(target){
-
-        target.scrollIntoView({
-          behavior: 'smooth'
-        });
-
-      }
-
-    });
-
-});
-// ==============================================
-// FUTURISTIC PROGRESS BAR
-// ==============================================
-
-// CAMBIA SOLO ESTE VALOR CADA DÍA
-
-const porcentajeSorteo = 0;
-
-// ELEMENTOS
-
-const progressFill =
-  document.getElementById("progress-fill");
-
-const progressPercent =
-  document.getElementById("progress-percent");
-
-// ANIMACIÓN
-
-setTimeout(() => {
-
-  progressFill.style.width =
-    `${porcentajeSorteo}%`;
-
-}, 500);
-
-// TEXTO
-
-progressPercent.innerHTML =
-  `${porcentajeSorteo}%`;
